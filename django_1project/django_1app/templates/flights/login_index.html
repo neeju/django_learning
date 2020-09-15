@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>
+			PLEASE LOGIN
+		</title>
+
+	<body>
+
+{%if message %}
+	{{message}}
+
+{% endif %}
+
+<form action = "{% url 'login'%}"  method = "POST">
+	<%csrf_token%>
+	USERNAME:<input type = "text" name="username"/></br>
+	PASSWORD:<input type="password" name ="password"/>SUBMIT <input type = "Submit" value = "Login"></br>
+</form>
+	</body>
+</html>

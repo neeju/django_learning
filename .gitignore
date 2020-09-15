@@ -130,4 +130,4 @@ dmypy.json
 
 #ignore venv fiels
 bin
-pyven.cfg
+pyvenv.cfg

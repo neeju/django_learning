@@ -1,0 +1,39 @@
+{%extends "flights/base.html" %}
+{%block title%}
+Flight Details {fl_det.id}}
+{%endblock%}
+{%block body%}
+<h3>FLIGHT DETAILS</h3><br>
+		Origin: {{fl_det.origin}} <br>
+		Destination: {{fl_det.destination}} <br>
+		Passengers: <br>
+		<ul>
+		{% for i in passengers %}
+			<li>{{i}}</li>
+			<br>
+		
+		{%empty%}
+			No Passengers for this flight.<br>
+		{%endfor%}
+	</ul>
+
+		
+		<h3>Add a Passenger to this Flight</h3><br>
+		{%if non_passengers%}
+		<form action="{%url 'bookflight' fl_det.id%}" method="post">
+			{% csrf_token %}
+			<select name='passenger'>
+				{%for j in non_passengers%}
+				<option value="{{j.id}}">{{j}}</option>
+				{%endfor%}
+			</select>
+			<br>
+			<br>
+			<input type="submit" value="Book Flight"><br><br>
+		</form>
+		{%else%}
+			<div>No Passenger to add.</div><br><br>
+		{%endif%}
+
+		<a href = "{% url 'index'%}">Back</a><br>
+{%endblock%}

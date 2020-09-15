@@ -1,0 +1,4 @@
+from django.urls include path,include
+from .views include login_user_index,login_user,logout_user
+
+urlpatterns = [ path('',login_user_index,name="login_index")]
